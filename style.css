@@ -296,11 +296,33 @@ p {
 footer {
   background: #000;
   color: #aaa;
-  padding: 40px 20px;
+  padding: 30px 20px;
   text-align: center;
-  font-size: 0.95rem;
-  border-top: 1px solid #1a1a1a;
 }
+
+.footer-socials {
+  margin-bottom: 12px;
+}
+
+.footer-socials a {
+  color: #aaa;
+  margin: 0 10px;
+  font-size: 1.25rem;
+  transition: color 0.3s;
+}
+
+.footer-socials a:hover {
+  color: #2F77F1;
+}
+ .footer-socials a svg {
+  fill: #aaa;
+  transition: fill 0.3s;
+}
+
+.footer-socials a:hover svg {
+  fill: #2F77F1;
+}
+
 
 @media (max-width: 768px) {
   .hero-content h1 {
