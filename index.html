@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>App Prod — Digital Product Studio</title>
+<!-- Favicon and App Icons -->
+<link rel="icon" href="./favicon.ico" type="image/x-icon" />
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon.png" />
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+
+
+
+
+  <link rel="manifest" href="manifest.json" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+</head>
+<body>
+
+  <header class="navbar">
+    <img src="App Prod Logos.jpeg" alt="AppProd Logo" class="logo" />
+<div class="menu-toggle" id="menu-toggle">
+  <i class="fas fa-bars"></i>
+</div>
+<ul class="nav-links" id="nav-links">
+  <li><a class="nav-link" href="#about">About</a></li>
+  <li><a class="nav-link" href="#services">Services</a></li>
+  <li><a class="nav-link" href="#showcase">Showcase</a></li>
+  <li><a class="nav-link" href="#contact">Contact</a></li>
+</ul>
+
+  
+  </header>
+
+  <section class="hero">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+      <h1>App Prod</h1>
+      <p id="typewriter">We build apps and websites.</p>
+      <a href="#contact" class="cta-button">Get In Touch</a>
+    </div>
+  </section>
+
+  <main>
+<section id="about" data-aos="fade-up">
+  <h2>About Us</h2>
+  <div class="about-grid">
+    <div class="about-card">
+      <i class="fas fa-briefcase"></i>
+      <h3>Who We Are</h3>
+      <p>We are a modern digital product studio helping brands and startups bring ideas to life through clean, scalable apps and websites. Our focus is precision, usability, and long-term value.</p>
+    </div>
+    <div class="about-card">
+      <i class="fas fa-laptop-code"></i>
+      <h3>What We Build</h3>
+      <p>Launch-ready Android/iOS apps, responsive websites, admin panels, and progressive web apps using Flutter, React, Firebase, Next.js and more.</p>
+    </div>
+    <div class="about-card">
+      <i class="fas fa-handshake"></i>
+      <h3>Our Approach</h3>
+      <p>We partner with you at every step — from strategy to development to launch. Agile process, transparent communication, and pixel-perfect design.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+    <section id="services">
+      <h2>Our Services</h2>
+      <div class="cards">
+        <div class="card"><i class="fas fa-mobile-alt"></i><br>Mobile App Development</div>
+        <div class="card"><i class="fas fa-desktop"></i><br>Web Design & Development</div>
+        <div class="card"><i class="fas fa-pencil-ruler"></i><br>UI/UX Design Systems</div>
+        <div class="card"><i class="fas fa-rocket"></i><br>Prototyping & MVP Launch</div>
+        <div class="card"><i class="fas fa-cloud-upload-alt"></i><br>App/Web Deployment</div>
+        <div class="card"><i class="fas fa-chart-line"></i><br>Optimization & Support</div>
+      </div>
+    </section>
+    
+<section id="showcase" data-aos="fade-right">
+  <h2>Our Work</h2>
+  <div class="carousel-wrapper">
+    <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+
+    <div class="carousel-track">
+      <div class="project-slide"><img src="./images/project1.jpeg" alt="Project 1" /></div>
+      <div class="project-slide"><img src="./images/project2.jpeg" alt="Project 2" /></div>
+      <div class="project-slide"><img src="./images/project3.jpeg" alt="Project 3" /></div>
+      <div class="project-slide"><img src="./images/project4.jpeg" alt="Project 4" /></div>
+      <div class="project-slide"><img src="./images/project5.jpeg" alt="Project 5" /></div>
+      <div class="project-slide"><img src="./images/project6.jpeg" alt="Project 6" /></div>
+    </div>
+
+    <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+  </div>
+</section>
+
+
+<section id="founder" data-aos="fade-up">
+  <h2>Meet the Founder</h2>
+  <div class="founder-container">
+    <img src="founder.jpg" alt="Founder Photo" class="founder-img">
+    <div class="founder-info">
+      <h3>Revanth Rajeev Krishnan</h3>
+      <p>Founder & Lead Developer at App Prod</p>
+      <p>Revanth is a passionate App/Web Developer dedicated to building scalable apps and user-centric digital solutions. With a focus on mobile and web technology, he leads the App Prod vision toward modern product excellence.</p>
+    </div>
+          <div class="social-icons">
+        <a href="https://linkedin.com/in/revanthrajeevkrishnan" target="_blank"><i class="fab fa-linkedin"></i></a>
+        
+      </div>
+  </div>
+</section>
+
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Let’s collaborate on your next big thing. Share your idea and we’ll bring it to life.</p>
+<form class="contact-form" id="contact-form">
+
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+<p id="form-status"></p>
+
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AppProd. Engineered with purpose. Designed with care.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
+  <!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+</script>
+
+<div id="toast-container"></div>
+
+
+
+</body>
+</html>
