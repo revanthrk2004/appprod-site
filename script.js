@@ -1,33 +1,41 @@
-// Particles Background
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 60, density: { enable: true, value_area: 800 } },
-    color: { value: "#2F77F1" },
-    shape: { type: "circle" },
-    opacity: { value: 0.5 },
-    size: { value: 2 },
-    line_linked: {
-      enable: true,
-      distance: 200,
-      color: "#2F77F1",
-      opacity: 0.9,
-      width: 1
+console.log("Script loaded!");
+document.addEventListener("DOMContentLoaded", function () {
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 60, density: { enable: true, value_area: 800 } },
+      color: { value: "#2F77F1" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: 2 },
+      line_linked: {
+        enable: true,
+        distance: 200,
+        color: "#2F77F1",
+        opacity: 0.9,
+        width: 1
+      },
+      move: { enable: true, speed: 1.5 }
     },
-    move: { enable: true, speed: 1.5 }
+interactivity: {
+  detect_on: "canvas",
+  events: {
+    onhover: { enable: true, mode: "repulse" },
+    onclick: { enable: true, mode: "push" },
+    resize: true
   },
-  interactivity: {
-    detect_on: "canvas",
-    events: {
-      onhover: { enable: true, mode: "repulse" },
-      onclick: { enable: true, mode: "push" }
-    },
-    modes: {
-      repulse: { distance: 100 },
-      push: { particles_nb: 4 }
-    }
-  },
-  retina_detect: true
+  modes: {
+    grab: { distance: 400, line_linked: { opacity: 1 } },
+    bubble: { distance: 400, size: 40, duration: 2, opacity: 8 },
+    repulse: { distance: 100 },
+    push: { particles_nb: 6 },
+    remove: { particles_nb: 2 }
+  }
+}
+,
+    retina_detect: true
+  });
 });
+
 
 // Carousel Functionality
 const track = document.querySelector(".carousel-track");

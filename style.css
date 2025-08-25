@@ -1,6 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
+
+@font-face {
+  font-family: 'Arciform';
+  src: url('fonts/Arciform.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Konnect';
+  src: url('fonts/Konnect-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+/* Add additional faces as needed for bold, italic */
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -8,12 +25,17 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   background: #0d0d0d;
   color: #f1f1f1;
   line-height: 1.6;
   scroll-behavior: smooth;
+  font-size: 1.725rem;
+  font-weight: 300; 
+  font-style: normal;
 }
+
+
 
 a {
   text-decoration: none;
@@ -38,13 +60,14 @@ header.navbar {
 }
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 3.5rem;
   list-style: none;
 }
 .nav-link {
   color: #fff;
   font-weight: 600;
   position: relative;
+  font-size: 1.3rem;
 }
 .nav-link::after {
   content: "";
@@ -76,15 +99,9 @@ header.navbar {
   width: 100%;
   height: 100%;
   z-index: 0;
+  pointer-events: auto;
 }
-.hero-content {
-  z-index: 2;
-}
-.hero-content h1 {
-  font-size: 8.5rem;
-  color: #2F77F1;
-  margin-bottom: 7rem;
-}
+
 
 
 .hero-content p {
@@ -328,7 +345,7 @@ footer {
 
 @media (max-width: 768px) {
   .hero-content h1 {
-    font-size: 5.2rem;
+    font-size: 6rem;
   }
   .carousel-track img {
     max-height: 300px;
@@ -502,22 +519,150 @@ footer {
 }
 
 
-.animated-text {
-  font-size: 1.1rem;
+
+
+
+
+
+
+
+
+/* Optional: overlay reveal effect */
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #0d0d0d;
+  mix-blend-mode: normal;
+  animation: overlayReveal 1.2s ease-out 0.3s forwards;
+}
+
+@keyframes overlayReveal {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* Ensure overlay stays behind text but above particles */
+.hero {
+  position: relative;
+}
+.hero-content {
+  position: relative; z-index: 2;
+}
+.hero-overlay {
+  z-index: 1;
+}
+.hero-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #2F77F1;
+  margin-bottom: 1.5rem;
+
+  /* 3D effect & glow */
+
+      text-shadow:
+    0 2px 6px rgba(255, 255, 255, 0.4),
+    0 4px 10px rgba(47, 119, 241, 0.25);
+
+  mix-blend-mode: lighten;
+  animation: heroGlowEnter 1.2s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+}
+
+
+.hero-sub {
+  font-size: 1.6rem;
+  font-weight: 500;
   color: #ccc;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid #2F77F1;
-  width: 0;
-  animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
-  margin: 10px 0;
+  margin-bottom: 1.2rem;
+  opacity: 0;
+  animation: entrance-fadeup 1.5s ease-out forwards;
+  animation-delay: 0.3s;
+  transform: translateY(30px) scale(0.95);
 }
 
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+.hero-sub span {
+  display: inline-block;
+  animation: pop-in 0.6s ease forwards;
+  opacity: 0;
+}
+.hero-sub span:nth-child(1) { animation-delay: 0.5s; }
+.hero-sub span:nth-child(2) { animation-delay: 0.7s; }
+.hero-sub span:nth-child(3) { animation-delay: 0.9s; }
+
+.hero-desc {
+  font-size: 1.1rem;
+  color: #999;
+  margin-bottom: 1.8rem;
+  opacity: 0;
+  animation: entrance-fadeup 1.7s ease-out forwards;
+  animation-delay: 0.6s;
 }
 
-@keyframes blink {
-  50% { border-color: transparent }
+.entrance-cta {
+  opacity: 0;
+  animation: entrance-fadeup 2s ease-out forwards;
+  animation-delay: 1s;
+}
+
+/* Glowing overlay behind content */
+.hero-overlay-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at center, rgba(47, 119, 241, 0.05), transparent 70%);
+  z-index: -1;
+}
+
+/* Make sure content is above */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+@keyframes entrance-fadeup {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@media (max-width: 768px) {
+.hero-title {
+  font-size: 6rem;
+  font-family: 'Orbitron', sans-serif;
+  text-shadow:
+    0 2px 6px rgba(255, 255, 255, 0.4),
+    0 4px 10px rgba(47, 119, 241, 0.25);
+
+}
+
+  .hero-sub {
+    font-size: 1.15rem;
+  }
+}
+@keyframes heroGlowEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
