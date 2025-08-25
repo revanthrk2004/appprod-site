@@ -81,10 +81,12 @@ header.navbar {
   z-index: 2;
 }
 .hero-content h1 {
-  font-size: 3.5rem;
+  font-size: 8.5rem;
   color: #2F77F1;
-  margin-bottom: 1rem;
+  margin-bottom: 7rem;
 }
+
+
 .hero-content p {
   font-size: 1.25rem;
   margin-bottom: 1.5rem;
@@ -326,7 +328,7 @@ footer {
 
 @media (max-width: 768px) {
   .hero-content h1 {
-    font-size: 2.2rem;
+    font-size: 5.2rem;
   }
   .carousel-track img {
     max-height: 300px;
@@ -497,4 +499,25 @@ footer {
 @keyframes fadeout {
   from { opacity: 1; }
   to { opacity: 0; transform: translateY(-10px); }
+}
+
+
+.animated-text {
+  font-size: 1.1rem;
+  color: #ccc;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #2F77F1;
+  width: 0;
+  animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
+  margin: 10px 0;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
 }
