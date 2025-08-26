@@ -110,3 +110,60 @@ function showToast(message, type) {
   toastContainer.appendChild(toast);
   setTimeout(() => toast.remove(), 4000);
 }
+let hasExited = true; // start assuming it's offscreen
+
+function animateCounters() {
+  const counters = document.querySelectorAll(".count");
+  const duration = 2000; // Total animation time in milliseconds
+  const frameRate = 60; // Adjust for smoother or faster animation
+  const totalFrames = duration / (1000 / frameRate);
+
+  counters.forEach(counter => {
+    const target = +counter.getAttribute("data-target");
+    let current = 0;
+    let frame = 0;
+
+    const increment = target / totalFrames;
+
+    const updateCount = () => {
+      frame++;
+      current += increment;
+
+      if (frame < totalFrames) {
+        counter.innerText = Math.floor(current);
+        setTimeout(updateCount, 1000 / frameRate);
+      } else {
+        counter.innerText = target;
+      }
+    };
+
+    updateCount();
+  });
+}
+
+
+function isFullyInView(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+  );
+}
+
+function isFullyOutOfView(el) {
+  const rect = el.getBoundingClientRect();
+  return rect.bottom < 0 || rect.top > window.innerHeight;
+}
+
+window.addEventListener("scroll", () => {
+  const metrics = document.querySelector(".metrics");
+
+  if (isFullyOutOfView(metrics)) {
+    hasExited = true;
+  }
+
+  if (isFullyInView(metrics) && hasExited) {
+    hasExited = false;
+    animateCounters();
+  }
+});

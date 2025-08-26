@@ -163,7 +163,7 @@ p {
   margin-top: 40px;
 }
 .about-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(23, 71, 176, 0.215);
   backdrop-filter: blur(14px);
   border-radius: 14px;
   padding: 30px 20px;
@@ -200,7 +200,7 @@ p {
   margin-top: 40px;
 }
 .card {
-  background: #1a1a1a;
+  background: rgba(23, 71, 176, 0.215);
   padding: 32px 22px;
   border-radius: 12px;
   text-align: center;
@@ -215,7 +215,7 @@ p {
 }
 .card:hover {
   transform: translateY(-6px) scale(1.02);
-  background: #222;
+  background: #2c49ee6d;
   box-shadow: 0 6px 30px rgba(47,119,241,0.2);
 }
 .carousel-wrapper {
@@ -284,6 +284,7 @@ p {
   gap: 16px;
   max-width: 600px;
   margin: 0 auto;
+  
 }
 .contact-form input,
 .contact-form textarea {
@@ -313,7 +314,7 @@ p {
 
 /* FOOTER */
 footer {
-  background: #000;
+  background: #040404;
   color: #aaa;
   padding: 30px 20px;
   text-align: center;
@@ -342,6 +343,32 @@ footer {
   fill: #2F77F1;
 }
 
+.metrics {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 60px 20px;
+  text-align: center;
+  background: #111111;
+  border-radius: 12px;
+  margin-top: 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.metric h3 {
+  font-size: 2.7rem;
+  color: #2F77F1;
+  margin-bottom: 10px;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 700;
+}
+
+.metric p {
+  font-size: 1.1rem;
+  color: #ccc;
+  font-family: "Exo 2", sans-serif;
+}
 
 @media (max-width: 768px) {
   .hero-content h1 {
