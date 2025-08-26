@@ -345,7 +345,7 @@ footer {
 
 @media (max-width: 768px) {
   .hero-content h1 {
-    font-size: 4.5rem;
+    font-size: 4rem;
   }
   .carousel-track img {
     max-height: 300px;
