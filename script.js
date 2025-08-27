@@ -168,7 +168,7 @@ window.addEventListener("scroll", () => {
   }
 });
 
-const glitchWords = ["STACK", "CODE", "DEPLOY", "DESIGN", "BUILD", "LAUNCH", "SCALE", "PROD"];
+const glitchWords = ["DATA", "CODE", "DROP", "SYNC", "FORM", "BOTS", "CORE", "PLAN", "EXEC", "PROD"];
 let glitchIndex = 0;
 
 function cycleGlitchWords() {

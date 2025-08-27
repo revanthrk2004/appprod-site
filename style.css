@@ -745,7 +745,7 @@ footer {
   font-size: clamp(1.8rem, 10vw, 4rem);
   flex-wrap: nowrap;
   gap: 0.5rem;
-  margin-right: 350px;
+  margin-right: 320px;
 }
 
 
