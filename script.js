@@ -167,3 +167,22 @@ window.addEventListener("scroll", () => {
     animateCounters();
   }
 });
+
+const glitchWords = ["STACK", "CODE", "DEPLOY", "DESIGN", "BUILD", "LAUNCH", "SCALE", "PROD"];
+let glitchIndex = 0;
+
+function cycleGlitchWords() {
+  const glitchEl = document.getElementById("glitch-word");
+  if (!glitchEl) return;
+
+  setInterval(() => {
+    glitchEl.classList.remove("glitch-text");
+    void glitchEl.offsetWidth; // force reflow to restart animation
+    glitchEl.textContent = glitchWords[glitchIndex];
+    glitchEl.classList.add("glitch-text");
+
+    glitchIndex = (glitchIndex + 1) % glitchWords.length;
+  }, 1900); // every 3 seconds
+}
+
+document.addEventListener("DOMContentLoaded", cycleGlitchWords);

@@ -579,19 +579,22 @@ footer {
   z-index: 1;
 }
 .hero-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  text-align: center;
+  font-size: clamp(2.5rem, 8vw, 10rem);
   font-family: 'Orbitron', sans-serif;
-  font-size: 10rem;
   font-weight: 800;
   text-transform: uppercase;
   color: #2F77F1;
   margin-bottom: 1.5rem;
-
-  /* 3D effect & glow */
-
-      text-shadow:
+  margin-left: 500px;
+  text-shadow:
     0 2px 6px rgba(255, 255, 255, 0.4),
     0 4px 10px rgba(47, 119, 241, 0.25);
-
   mix-blend-mode: lighten;
   animation: heroGlowEnter 1.2s ease-out forwards;
   opacity: 0;
@@ -673,23 +676,86 @@ footer {
     transform: translateY(0) scale(1);
   }
 }
-@media (max-width: 768px) {
-.hero-title {
-  font-size: 6rem;
-  font-family: 'Orbitron', sans-serif;
-  text-shadow:
-    0 2px 6px rgba(255, 255, 255, 0.4),
-    0 4px 10px rgba(47, 119, 241, 0.25);
 
-}
 
-  .hero-sub {
-    font-size: 1.15rem;
-  }
-}
+
+
+
+
 @keyframes heroGlowEnter {
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+
+
+
+@keyframes glitch {
+  0% { transform: scale(1) skewX(0); opacity: 1; }
+  20% { transform: scale(1.1) skewX(5deg); opacity: 0.8; }
+  40% { transform: scale(0.9) skewX(-5deg); opacity: 0.9; }
+  60% { transform: scale(1.05) skewX(3deg); opacity: 0.7; }
+  80% { transform: scale(0.95) skewX(-3deg); opacity: 0.85; }
+  100% { transform: scale(1) skewX(0); opacity: 1; }
+}
+
+
+
+
+.glitch-active {
+  animation: glitch 0.4s ease-in-out;
+}
+
+
+.static-part {
+  font-family: 'Orbitron', sans-serif;
+  color: #2F77F1;
+  font-size: clamp(10rem, 8vw, 10rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  text-shadow:
+    0 2px 6px rgba(255, 255, 255, 0.4),
+    0 4px 10px rgba(47, 119, 241, 0.25);
+}
+
+#glitch-word {
+  display: inline-block;
+  width: 8ch; /* enough space for longest word */
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+
+  font-family: 'Orbitron', sans-serif;
+  color: #2F77F1;
+  font-size: clamp(10rem, 8vw, 10rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  text-shadow:
+    0 2px 6px rgba(255, 255, 255, 0.4),
+    0 4px 10px rgba(47, 119, 241, 0.25);
+}
+
+
+@media (max-width: 768px) {
+ .hero-title {
+  font-size: clamp(1.8rem, 10vw, 4rem);
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  margin-right: 350px;
+}
+
+
+.static-part,
+#glitch-word {
+  font-size: clamp(3.3rem, 8vw, 10rem);
+}
+
+
+  .hero-sub {
+    font-size: 0.85rem;
   }
 }
