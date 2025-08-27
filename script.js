@@ -186,3 +186,23 @@ function cycleGlitchWords() {
 }
 
 document.addEventListener("DOMContentLoaded", cycleGlitchWords);
+
+
+const loopSections = document.querySelectorAll('.section-animate');
+
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      } else {
+        entry.target.classList.remove('in-view'); // Remove when out for repeat
+      }
+    });
+  },
+  {
+    threshold: 0.25,
+  }
+);
+
+loopSections.forEach(section => observer.observe(section));

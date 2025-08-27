@@ -119,7 +119,7 @@ header.navbar {
   cursor: pointer;
 }
 .cta-button:hover {
-  background: #1a5ed6;
+  background: #000102;
 }
 
 /* -- MAIN CONTENT STYLES BELOW -- */
@@ -631,11 +631,6 @@ footer {
   animation-delay: 0.6s;
 }
 
-.entrance-cta {
-  opacity: 0;
-  animation: entrance-fadeup 2s ease-out forwards;
-  animation-delay: 1s;
-}
 
 /* Glowing overlay behind content */
 .hero-overlay-glow {
@@ -760,8 +755,206 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
-  .entrance-cta {
-    animation-delay: 0.1s !important; /* override delay on small screens */
+/* === ANIMATION TESTING ZONE === */
+
+/* 1. Pulse Glow */
+.test-effect.pulse {
+  animation: pulse-glow 2s infinite;
+}
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(47, 119, 241, 0.7);
   }
+  70% {
+    box-shadow: 0 0 0 16px rgba(47, 119, 241, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(47, 119, 241, 0);
+  }
+}
+
+/* 2. Bounce In */
+.test-effect.bounce {
+  animation: bounceIn 1s ease-out 0.4s forwards;
+  opacity: 0;
+}
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 3. Shine Sweep */
+.test-effect.shine {
+  position: relative;
+  overflow: hidden;
+}
+.test-effect.shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
+  transform: skewX(-20deg);
+  animation: sweep 2s infinite;
+}
+@keyframes sweep {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+/* 4. Wiggle Pop */
+.test-effect.wiggle {
+  animation: wigglePop 2.2s ease-in-out infinite;
+}
+@keyframes wigglePop {
+  0%, 100% { transform: scale(1); }
+  10% { transform: rotate(-2deg) scale(1.05); }
+  20% { transform: rotate(2deg) scale(1.1); }
+  30% { transform: rotate(-1deg) scale(1.05); }
+  40% { transform: rotate(1deg); }
+  50% { transform: scale(1); }
+}
+
+/* 5. Neon Flicker */
+.test-effect.neon {
+  animation: neonFlicker 3s infinite;
+  box-shadow: 0 0 5px #2F77F1, 0 0 10px #2F77F1;
+}
+@keyframes neonFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    box-shadow: 0 0 5px #2F77F1, 0 0 10px #2F77F1;
+  }
+  20%, 24%, 55% {
+    box-shadow: none;
+  }
+}
+
+/* === ANIMATION TESTING ZONE === */
+
+/* 1. Pulse Glow */
+.test-effect.pulse {
+  animation: pulse-glow 2s infinite;
+}
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(47, 119, 241, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(47, 119, 241, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(47, 119, 241, 0);
+  }
+}
+
+
+
+
+
+
+
+.outline-pulse {
+  position: relative;
+  z-index: 1;
+}
+.outline-pulse::after {
+  content: '';
+  position: absolute;
+  top: -4px; left: -4px; right: -4px; bottom: -4px;
+  border: 2px solid #2F77F1;
+  border-radius: 8px;
+  opacity: 0;
+  z-index: -1;
+  animation: outlinePulse 2.5s infinite;
+}
+@keyframes outlinePulse {
+  0% { opacity: 0.6; transform: scale(0.95); }
+  50% { opacity: 0.2; transform: scale(1.1); }
+  100% { opacity: 0; transform: scale(1.2); }
+}
+
+
+
+.fireflash {
+  animation: flashLoop 2.5s infinite;
+}
+@keyframes flashLoop {
+  0% { box-shadow: 0 0 10px #2F77F1; }
+  25% { box-shadow: 0 0 25px #2F77F1; }
+  50% { box-shadow: 0 0 15px #2F77F1; }
+  75% { box-shadow: 0 0 30px #2F77F1; }
+  100% { box-shadow: 0 0 10px #2F77F1; }
+}
+
+@keyframes buttonEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.85);
+  }
+  40% {
+    transform: translateY(10px) scale(1.05);
+  }
+  70% {
+    transform: translateY(0) scale(0.98);
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cta-button.entrance.fireflash {
+  animation:
+    buttonEntrance 1.2s ease-out forwards,
+    fireflash 3s infinite ease-in-out 1.2s;
+}
+@media (max-width: 768px) {
+  .cta-button.entrance {
+    animation-delay: 0.8s;
+  }
+}
+
+.cta-button.combo-animate {
+  position: relative;
+  z-index: 1;
+  animation: buttonEntrance 4.2s ease-out forwards, flashLoop 2.5s infinite ease-in-out 1.2s;
+}
+
+.cta-button.combo-animate::after {
+  content: '';
+  position: absolute;
+  top: -4px; left: -4px; right: -4px; bottom: -4px;
+  border: 2px solid #2F77F1;
+  border-radius: 8px;
+  opacity: 0;
+  z-index: -1;
+  animation: outlinePulse 2.5s infinite 1.2s;
+}
+
+
+.section-animate {
+  opacity: 1;
+  transform: translateY(60px) scale(0.95);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  will-change: transform, opacity;
+}
+
+.section-animate.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
