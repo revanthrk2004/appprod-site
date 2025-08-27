@@ -762,6 +762,6 @@ footer {
 
 @media (max-width: 768px) {
   .entrance-cta {
-    animation-delay: 0.3s !important; /* override delay on small screens */
+    animation-delay: 0.1s !important; /* override delay on small screens */
   }
 }
